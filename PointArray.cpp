@@ -1,28 +1,30 @@
 #include "PointArray.h"
 #include "Punto.h"
 #include <iostream>
+using namespace std;
 PointArray::PointArray(const Punto points[], const int size)
 {
     tam = size;
     pt = new Punto[size];
     int i;
     for(i=0;i<size;i++)
-    pt[i]= points[i];
+        pt[i]= points[i];
+    cout<<"se creo el arreglo";
 
 }
 PointArray::PointArray(PointArray &p)
 {
-    pt = new Punto[p.tam]
-            int i;
-            tam = p.tam;
-            for(i=0;i<tam;i++)
-                pt[i]= p.pt[i];
+    int sizee = p.tam;
+    pt = new Punto[sizee]
+    int i;
+    for(i=0;i<tam;i++)
+        pt[i]= p.pt[i];
 }
 PointArray::print()
 {
     int i;
-            for(i=0;i<tam;i++)
-                pt[i].print();
+    for(i=0;i<tam;i++)
+        pt[i].print();
 }
 PointArray::quitar(const int position)
 {

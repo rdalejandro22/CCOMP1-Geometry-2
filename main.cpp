@@ -14,5 +14,5 @@ int main()
     Punto lista[5];
     PointArray(lista,4);
     lista.print();
-
+    lista[0].print();
 }
