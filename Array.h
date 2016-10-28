@@ -18,6 +18,8 @@ class PointArray
         void remove(int position);
         void clear();
         int getsize();
+        const Punto get(const int) const;
+        Punto get(const int);
 };
 
 #endif // ARRAY_H
