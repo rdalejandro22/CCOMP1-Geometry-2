@@ -72,4 +72,11 @@ int PointArray::getsize()
 {
     cout<<"El tamanio es: "<<tam<<"\n";
 }
-
+Point *PointArray::get(const int position)
+{
+    for(int i=0;i<tam;i++)
+        if(i==position)
+            return &pt[i];
+    return NULL;
+}
+  
