@@ -1,11 +1,19 @@
 #include "Punto.h"
 #include <iostream>
 using namespace std;
-Punto::Punto(): x(0),y(0){}
-Punto::Punto(int a, int b): x(a), y(b){}
+Punto::Punto()
+{
+    x=0;
+    y=0;
+}
+Punto::Punto(int a, int b)
+{
+    x=a;
+    y=b;
+}
 void Punto::print()
 {
-    cout<< "{" << x << "," << y << "}"<< endl;
+    cout<< "{" << x << "," << y << "}" << endl;
 }
 int Punto::getX()
 {
