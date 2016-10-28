@@ -12,8 +12,10 @@ class PointArray
         void print();
         void quitar(const int position);
         int getsize();
-        void añadirfin(const Punto);
+        void aÃ±adirfin(const Punto);
         void clear();
+        Punto get(const int);
+        const Punto get(const int) const;
 
 };
 
