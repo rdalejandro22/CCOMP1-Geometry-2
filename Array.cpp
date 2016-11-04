@@ -1,14 +1,14 @@
 #include "Array.h"
-#include <iostream>
 #include "Punto.h"
+#include <iostream>
 using namespace std;
 void PointArray::resize(int n)
 {
     Punto *p = new Punto[n];
-    tam = n;
     for(int i=0;i<n;i++)
         p[i]=pt[i];
     delete[] pt;
+    tam = n;
     pt = p;
 }
 PointArray::PointArray()
@@ -24,7 +24,7 @@ PointArray::PointArray(Punto points[],int size)
     pt = new Punto[size];
     for(int i=0;i<tam;i++)
         pt[i]= points[i];
-    cout << "Se creo el arreglo\n";
+    cout << "Se creo el arreglo normal\n";
 }
 PointArray::PointArray(PointArray &pv)
 {
@@ -40,10 +40,9 @@ PointArray::~PointArray()
 }
 void PointArray::print()
 {
-    cout << "El arreglo:\n";
+    cout << "El arreglo es:\n";
     for(int i=0;i<tam;i++)
         pt[i].print();
-
 }
 void PointArray::pushback(Punto &p)
 {
@@ -54,29 +53,33 @@ void PointArray::insert(int position, Punto &p)
 {
     resize(tam+1);
     for(int i=tam;i>position;i--)
-        pt[i]=pt[i--];
+        pt[i]=pt[i-1];
     pt[position]=p;
+    cout << "Se inserto el punto ";
+    p.print();
+    cout << "en la posicion " << position << "\n";
 }
 void PointArray::remove(int position)
 {
-    for(int i=position+1;i<tam;i++)
-        pt[i--]=pt[i];
+    for(int i=position;i<tam-1;i++)
+        pt[i]=pt[i+1];
     resize(tam-1);
+    cout << "Se quito el elemento de la posicion: " << position << "\n";
 }
 void PointArray::clear()
 {
     resize(0);
-    delete[] pt;
 }
 int PointArray::getsize()
 {
+    return tam;
     cout<<"El tamanio es: "<<tam<<"\n";
 }
-Point *PointArray::get(const int position)
+Punto *PointArray::get(int pos)
 {
-    for(int i=0;i<tam;i++)
-        if(i==position)
-            return &pt[i];
-    return NULL;
+	for(int i=0; i<pos; i++, pt++)
+		;
+	return pt;
+
 }
-  
+

@@ -1,7 +1,6 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 #include "Punto.h"
-
 class PointArray
 {
     int tam;
@@ -18,8 +17,7 @@ class PointArray
         void remove(int position);
         void clear();
         int getsize();
-        const Punto get(const int) const;
-        Punto get(const int);
+        Punto *get(int pos);
 };
 
 #endif // ARRAY_H

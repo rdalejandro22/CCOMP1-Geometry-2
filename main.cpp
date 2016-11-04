@@ -4,7 +4,8 @@
 #include "Array.h"
 #include "VecArray.h"
 #include "Polygon.h"
-//int main()
+using namespace std;
+int main()
 {
     Punto p1(1,1);
     Punto p2(2,2);
@@ -14,6 +15,14 @@
     Punto p6(6,6);
     Punto p7(7,7);
     Punto p8(8,8);
+    Punto a[] = {p1,p2,p3};
+    PointArray ah(a,3);
+    ah.print();
+    ah.insert(1,p4);
+    ah.print();
+    ah.remove(0);
+    ah.print();
+    ah.get(0);
 
     /*Vector vec1(p1,p2);
     Vector vec2(p3,p4);
@@ -27,9 +36,9 @@
     arreglovec.pushback(vec4);
     arreglovec.print();*/
 
-    Punto array[] = {p1,p2};
-    PointArray lista(array,2);
-    Polygon poli(lista,2);
+    Rectangulo rec(p1,p2);
+    cout<<rec.area();
+
 
 
 
