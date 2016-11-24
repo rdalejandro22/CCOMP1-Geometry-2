@@ -1,0 +1,86 @@
+#include "miniwin.h"
+#include <cstdlib>
+#include <vector>
+using namespace miniwin;
+const int TAM = 25;
+const int FILAS = 20;
+const int COLUMNAS = 10;
+typedef int Tablero[COLUMNAS][FILAS];
+class Coordenadas
+{
+    int x, y;
+public:
+    Coordenadas(){
+        x=0;
+        y=0;
+    }
+    Coordenadas(int a, int b){
+        x=a;
+        y=b;
+    }
+    int getX()
+    {
+        return x;
+    }
+    int getY()
+    {
+        return y;
+    }
+    void setX(int a)
+    {
+        x = a;
+    }
+    void setY(int b)
+    {
+        y = b;
+    }
+};
+void cuadrado(int x, int y){
+    rectangulo_lleno(1 + x * TAM,
+                     1 + y * TAM,
+                     x * TAM + TAM,
+                     y * TAM + TAM);
+}
+class Pieza
+{
+    int abc;
+    Coordenadas *c;
+public:
+    Pieza(){}
+    Pieza(int color, std::vector <Coordenadas> extremos)
+    {
+        abc=color;
+        c = new Coordenadas[4];
+        Coordenadas pivote(4,1);
+        c[0]=pivote;
+        for(int i=1;i<4;i++){
+            c[i]= extremos[i-1];
+            c[i].setX(c[0].getX() + extremos[i-1].getX());
+            c[i].setY(c[0].getY() + extremos[i-1].getY());}
+
+    }
+    void pintar()
+    {
+        color(abc);
+        for(int i = 0; i < 4; i++)
+            cuadrado(c[i].getX(),c[i].getY());
+    }
+};
+Coordenadas extremos[7][3] = {
+    {{1,0},{0,1},{1,1}},
+    {{1,0},{-1,1},{0,1}},
+    {{0,1},{1,1},{-1,0}},
+    {{0,1},{0,-1},{1,1}},
+    {{0,1},{0,-1},{-1,1}},
+    {{0,1},{0,-1},{0,2}},
+    {{-1,0},{1,0},{0,1}}
+};
+void pieza_aleatoria()
+main()
+{
+    vredimensiona(TAM*COLUMNAS,TAM*FILAS);
+    std::vector <Coordenadas> extremos;
+    Pieza z(1,extremos);
+    z.pintar();
+    refresca();
+}
